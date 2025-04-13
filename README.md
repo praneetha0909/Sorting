@@ -88,7 +88,7 @@ The bar charts below show the execution time (in nanoseconds) for each sorting a
 
 ## 🙌 Acknowledgements
 
-- Special thanks to **CSE 5311 Faculty** at UTA for guidance and encouragement.
+- Special thanks to **CSE 5311 Faculty** for guidance and encouragement.
 - This project enriched understanding of time complexity, recursion, heap structure, and GUI development.
 
 ---
