@@ -70,11 +70,11 @@ The bar charts below show the execution time (in nanoseconds) for each sorting a
 
 ### 🔹 Input Size: 1000
 
-![Runtime Comparison (1000)](assets/size-1000.jpg)
+![Runtime Comparison (1000)](size-1000.jpg)
 
 ### 🔹 Input Size: 5000
 
-![Runtime Comparison (5000)](assets/size-5000.jpg)
+![Runtime Comparison (5000)](size-5000.jpg)
 
 ---
 
