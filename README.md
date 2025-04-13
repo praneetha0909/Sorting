@@ -1,109 +1,110 @@
-***Project Title***
------------------------------
-SORTING ALGORITHMS
-------------------------------
+# 📊 Sorting Algorithms Comparison & Visualization
+---
 
-***INTRODUCTION***
+## 📌 Overview
 
-The Eclipse Integrated Development Environment (IDE) was used to implement a set of well-known sorting algorithms in Java for 
-this project. It offers examples of Mergesort, Heapsort, Quicksort (with standard and three-median partitioning), Insertion sort, 
-Selection sort, and Bubble sort. 
-For reference reasons, the project seeks to offer a thorough and well-documented collection of sorting algorithms with includes 
-running time of the sorting algorithms along with various input sizes.
-## BubbleSort 
-The basic comparison-based sorting method known as "Bubble Sort" compares nearby elements in an array repeatedly and swaps them if they are in the wrong order, continuing until the entire array is sorted.
-## HeapSort 
-Heapsort is a comparison-based sorting algorithm that arranges elements in a binary heap data structure.
-## InsertionSort 
-Insertion Sort is a straightforward comparison-based sorting algorithm that continually chooses one element from the array's unsorted portion and inserts it into the proper location in the sorted portion.
-## MergeSort
-Mergesort is a divide-and-conquer algorithm that divides an array recursively, sorts each half independently,and then merges the two halves back together.
-## Quick Sort
-A pivot element is used to partition the array in the quicksort method, which then recursively sorts the sub-arrays on both sides of the pivot.
-## Selection Sort 
-Selection Sort is a basic comparison-based sorting algorithm that repeatedly moves the smallest (or largest) element from the array's unsorted portion to the start (or end) of the sorted portion.
-## Threeway QuickSort 
-The Quicksort algorithm can be modified to use three partitions rather than two, which improves speed for arrays with a lot of duplicate entries.
+This project focuses on implementing and comparing the performance of seven widely known sorting algorithms. The comparison is based on run-time performance across different input sizes. A **web-based GUI** is also developed using **HTML** and **JavaScript** to allow user interaction, algorithm selection, and dynamic performance comparison.
 
-***MOTIVATION***
+---
 
-This project's goal is to offer a thorough and well-organized collection of sorting algorithms that have been implemented in Java 
-using Eclipse. It intends to provide a ready-to-use codebase for sorting arrays and assist programmers in learning and comprehending 
-various sorting algorithms and their Java implementations using the Eclipse IDE.
+## 🔢 Implemented Sorting Algorithms
 
-***BUILD STATUS***
+Each algorithm is implemented in JavaScript with corresponding runtime analysis:
 
-1. BubbleSort: Stable
-2. HeapSort: Stable
-3. insertionSort: Stable
-4. MergeSort: Stable
-5. QuickSort: Stable
-6. SelectionSort: Stable
-7. threewayQuickSort: Stable
-8. SortingAlgoComparision: Stable
+- 🔁 **Bubble Sort** – Simple comparison sort (O(n²))
+- 🧲 **Selection Sort** – Selects the minimum each pass (O(n²))
+- 📥 **Insertion Sort** – Inserts elements into their correct position (O(n²))
+- ⚡ **Quick Sort** – Divide and conquer using pivot (O(n log n) avg, O(n²) worst)
+- 🧬 **Merge Sort** – Recursive divide and merge (O(n log n))
+- 🏗️ **Heap Sort** – Binary heap-based sorting (O(n log n))
+- 🎯 **Three-Way Quick Sort** – Optimized for duplicate-heavy datasets (O(n log n))
 
-***CODE STYLE***
+---
 
-To maintain uniformity and readability, this project adheres to the accepted Java code style standards. The codebase uses proper 
-formatting, indentation, and naming rules.
+## 🧪 Methodology
 
-***TECHNOLOGY/FRAMEWORK:
+- Input arrays of various sizes were generated.
+- The runtime of each algorithm was measured using `System.nanoTime()` in Java.
+- For GUI, the user selects algorithms and input size; results are logged in the browser console.
+- Performance is displayed in **bar charts** for better visual understanding.
 
-No external frameworks or libraries are used; this project is implemented in Java using the Eclipse IDE.
+---
 
-***FEATURES***
+## 🖥️ GUI Features
 
-Implementation of several well-known sorting algorithms, including Bubble, Selection, Insertion, Merge, Quick, and Heap sorts.
-Sorting algorithms are implemented to sort elements based on random generator.
-Code that is easy to understand and is properly documented, with comments that outline the reasoning behind each sorting algorithm's 
-steps.
+- Built using **HTML + JavaScript**
+- Input field for custom array size
+- Drop-down selection for 3 algorithms
+- Comparison output printed to **browser console**
+- Launch by opening `index.html` in any browser
 
-***EXAMPLE TO A CODE***
+### Example Use:
 
-Here is an example using Eclipse showing how to sort an array of numbers in ascending order using the Bubble Sort implementation 
-from this project:
+1. Open in Chrome/Edge
+2. Enter input size (e.g., 1000)
+3. Select 3 algorithms to compare
+4. Click **Compare** and view performance logs in the browser console
 
-public static void bubbleSort(int[] arr)
-	{
-		int n = arr.length;
-		for(int i = 0;i<n-1;i++)
-		{
-			for(int j = 0;j<n-i-1;j++)
-			{
-				if(arr[j] > arr[j+1])
-				{
-					//swap array[j] and array[j+1]
-					int temp = arr[j];
-					arr[j] = arr[j+1];
-					arr[j+1] = temp;
-				}
-			}
-		}
-	}
-	
-***INSTALLATION***
+---
 
-Since it is a Java codebase, this project may be directly integrated into any Java project made in Eclipse without the need for 
-installation. Simply add the appropriate sorting algorithm implementations to your Java project in Eclipse and utilize them as necessary.
+## 📊 Performance Comparison
 
-***HOW TO USE***
+### Runtime Trends
 
-1. Launch Eclipse and start a fresh Java project.
-2. Make a new Java class in the project and give it the name "Main" or another suitable name.
-3. In the "Main" class, import the project's Bubble Sort implementation.
-4. Write code to construct an array of integers and sort the array by invoking the bubbleSort() method of the Bubble Sort implementation.
-5. To view the sorted output, run the "Main" class.
+| Algorithm           | Best Use Case                     | Time Complexity |
+|---------------------|-----------------------------------|-----------------|
+| Bubble Sort         | Small datasets                    | O(n²)           |
+| Selection Sort      | Small datasets                    | O(n²)           |
+| Insertion Sort      | Nearly sorted or small datasets   | O(n²)           |
+| Quick Sort          | General-purpose                   | O(n log n)      |
+| Merge Sort          | Stable sorting, large datasets    | O(n log n)      |
+| Heap Sort           | In-place, consistent performance  | O(n log n)      |
+| Three-Way Quick Sort| Duplicate-heavy arrays            | O(n log n)      |
 
-(OR)
+Charts were generated for input sizes of 1000 and 5000, highlighting performance differences visually.
 
-1. 'bubbleSort.java' should be included in your Java project.
-2. Call the 'bubbleSort(int[] arr)' function with the parameter of the array you wish to sort.
-3. The 'bubbleSort' method will continually check nearby elements in the array and swap them if they are out of order, 
-until the array is sorted.
-4. The 'bubbleSort' method will return the sorted array.
+---
+## 📈 Runtime Performance Comparison
 
-***CONCLUSION***
-In this project, I have used Eclipse to create seven distinct sorting algorithms in Java, including Merge Sort, Heap Sort, 
-Quick Sort (Regular and Three-Way), Insertion Sort, Selection Sort, and Bubble Sort. Each algorithm has distinctive properties and 
-performance traits that make it appropriate for various use cases.
----------------------------------------------------------------------------------------------------------------------------------------# Sorting
+The bar charts below show the execution time (in nanoseconds) for each sorting algorithm based on different input sizes.
+
+### 🔹 Input Size: 1000
+
+![Runtime Comparison (1000)](assets/size-1000.jpg)
+
+### 🔹 Input Size: 5000
+
+![Runtime Comparison (5000)](assets/size-5000.jpg)
+
+---
+
+## 💡 Lessons Learned
+
+- 🧠 Choosing the right sorting algorithm matters — both theoretically and practically.
+- 🧪 Runtime measurements provide real-world insights into algorithm efficiency.
+- 🌐 Front-end integration helps bridge algorithmic logic and user experience.
+
+---
+
+## 🙌 Acknowledgements
+
+- Special thanks to **CSE 5311 Faculty** at UTA for guidance and encouragement.
+- This project enriched understanding of time complexity, recursion, heap structure, and GUI development.
+
+---
+
+## 📎 Future Enhancements
+
+- Add visualization of step-by-step sorting.
+- Include more sorting algorithms like Radix Sort or Shell Sort.
+- Improve GUI styling and enable download of comparison charts.
+
+---
+
+## 🚀 How to Run
+
+1. Clone this repo:
+```bash
+git clone https://github.com/yourusername/sorting-algorithms-comparison.git
+
+
