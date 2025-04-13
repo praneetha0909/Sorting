@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sorting Algorithms></title>
+</head>
+<body>
+	<h1>Sorting Algorithms</h1>
+	<div id="container"></div>
+	<label for="algorithm">Select Sorting Algorithm 1:</label>
+	<select id="algorithm_1">
+		<option value="bubbleSort">Bubble Sort</option>
+		<option value="heapSort">Heap Sort</option>
+		<option value="insertionSort">Insertion Sort</option>
+		<option value="mergeSort">Merge Sort</option>
+		<option value="quickSort">Quick Sort</option>
+		<option value="selectionSort">Selection Sort</option>
+		<option value="threewayQuickSort">Three Way Quick Sort</option>
+	</select>
+	</br></br>
+	<label for="algorithm">Select Sorting Algorithm 2:</label>
+	<select id="algorithm_2">
+		<option value="heapSort">Heap Sort</option>
+		<option value="bubbleSort">Bubble Sort</option>
+		<option value="insertionSort">Insertion Sort</option>
+		<option value="mergeSort">Merge Sort</option>
+		<option value="quickSort">Quick Sort</option>
+		<option value="selectionSort">Selection Sort</option>
+		<option value="threewayQuickSort">Three Way Quick Sort</option>
+	</select>
+	</br></br>
+	<label for="algorithm">Select Sorting Algorithm 3:</label>
+	<select id="algorithm_3">
+		<option value="mergeSort">Merge Sort</option>
+		<option value="bubbleSort">Bubble Sort</option>
+		<option value="heapSort">Heap Sort</option>
+		<option value="insertionSort">Insertion Sort</option>
+		<option value="quickSort">Quick Sort</option>
+		<option value="selectionSort">Selection Sort</option>
+		<option value="threewayQuickSort">Three Way Quick Sort</option>
+ 	</select>
+	</br></br>
+	<button onclick="startSorting()">Compare</button>
+	<p id="Time Taken"></p>
+	<script>
+		function startSorting() {
+		let variable = [];
+		var x = document.getElementById("algorithm_1").selectedIndex;
+		 variable[0] = document.getElementById("algorithm_1")[x].value;
+		//alert(variable[0]);
+		var y = document.getElementById("algorithm_2").selectedIndex;
+		 variable[1] = document.getElementById("algorithm_2")[y].value;
+		//alert(variable[1]);
+		var z = document.getElementById("algorithm_3").selectedIndex;
+		 variable[2] = document.getElementById("algorithm_3")[z].value;
+		//alert(variable[2]);
+		for(let i = 0;i < 3 ; i++)
+		{
+		if(variable[i] === "bubbleSort") 
+		{
+		var startTime = performance.now();
+		var arr = [];
+		bubbleSort();
+		var endTime = performance.now();
+		//console.log();
+		// Print runtime in milliseconds
+		console.log("Bubble Sort runtime: " + (endTime - startTime) + " milliseconds");
+		}
+		else if(variable[i] === "heapSort")
+		{
+		//alert("heap");
+		var startTime = performance.now();
+		heapSort();
+		var endTime = performance.now();
+		//console.log();
+		// Print runtime in milliseconds
+		console.log("Heap Sort runtime: " + (endTime - startTime) + " milliseconds");
+		} //Else If for Heapsort
+		else if(variable[i] === "insertionSort")
+		{
+		var startTime = performance.now();
+		insertionSort();
+		var endTime = performance.now();
+		//console.log();
+		// Print runtime in milliseconds
+		console.log("Insertion Sort runtime: " + (endTime - startTime) + " milliseconds");
+		} //Else If for Insertion Sort
+		else if(variable[i] === "selectionSort")
+		{
+		var startTime = performance.now();
+		selectionSort();
+		var endTime = performance.now();
+		//console.log();
+		// Print runtime in milliseconds
+		console.log("Selection Sort runtime: " + (endTime - startTime) + " milliseconds");
+		} //Else If for Selection Sort
+		else if(variable[i] === "mergeSort")
+		{
+		//alert("enter merge");
+		let arr1 = [];
+		let left = 0;
+        	for (let i = 0; i < 10; i++) 
+		{
+            arr1.push(Math.floor(Math.random() * 100) + 10);
+		}
+		console.log("Unsorted Array:");
+		for (var l = 0; l < arr1.length; l++) 
+		{
+  		console.log(arr1[l] + " ");
+		}
+		let right = arr1.length - 1;
+		var startTime = performance.now();
+		mergeSort(arr1,0,arr1.length-1);
+		var endTime = performance.now();
+		console.log("Sorted Array for Merge Sort:");
+		for (var o = 0; o < arr1.length; o++) 
+		{
+  		console.log(arr1[o] + " ");
+		}
+		//console.log();
+		// Print runtime in milliseconds
+		console.log("Merge Sort runtime: " + (endTime - startTime) + " milliseconds");
+		} //Else If for Merge Sort
+		else if(variable[i] === "quickSort")
+		{
+		var startTime = performance.now();
+		let arr5 = [];
+        	for (let i = 0; i < 10; i++) 
+		{
+            arr5.push(Math.floor(Math.random() * 100) + 10);
+		}
+		console.log("Unsorted Array:");
+		for (var d = 0; d < arr5.length; d++) 
+		{
+  			console.log(arr5[d] + " ");
+		}
+		var startTime = performance.now();
+		quickSort(arr5,0,arr5.length-1);
+		var endTime = performance.now();
+		//alert("arr5.length is:" + arr5.length);
+		console.log("Sorted Array for Quick Sort:");
+		for (var c = 0; c < arr5.length; c++) 
+		{
+			console.log(arr5[c] + " ");
+		}
+		//console.log();
+		// Print runtime in milliseconds
+		console.log("Quick Sort runtime: " + (endTime - startTime) + " milliseconds");
+		} //Else If for quick Sort
+		else if(variable[i] === "threewayQuickSort")
+		{
+		var startTime = performance.now();
+		let arr6 = [];
+        	for (let i = 0; i < 10; i++) 
+		{
+            arr6.push(Math.floor(Math.random() * 100) + 10);
+		}
+		console.log("Unsorted Array:");
+		for (var f = 0; f < arr6.length; f++) 
+		{
+  			console.log(arr6[f] + " ");
+		}
+		threewayQuickSort(arr6,0,arr6.length-1);
+		var endTime = performance.now();
+		console.log("Sorted Array for Three Way Quick Sort:");
+		for (var g = 0; g < arr6.length; g++) 
+		{
+			console.log(arr6[g] + " ");
+		}
+		//console.log();
+		// Print runtime in milliseconds
+		console.log("ThreeWay Quick Sort runtime: " + (endTime - startTime) + " milliseconds");
+		} //Else If for Three Way Quick Sort
+		} //For clause
+}
+		
+		function bubbleSort() 
+		{
+		let arr = [];
+        	for (let i = 0; i < 10; i++) 
+		{
+            	arr.push(Math.floor(Math.random() * 100) + 10);
+		}
+		console.log("Unsorted Array:");
+		for (var i = 0; i < arr.length; i++) 
+		{
+  			console.log(arr[i] + " ");
+		}
+		for (let i = 0; i < arr.length - 1; i++) 
+		{
+                for (let j = 0; j < arr.length - i - 1; j++) 
+			{
+                    if (arr[j] > arr[j + 1]) {
+                        // Swap arr[j] and arr[j + 1]
+                        let temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+		
+                }	
+		}
+		console.log("Sorted Array for Bubble Sort:")
+		for (var i = 0; i < arr.length; i++) 
+		{
+  		console.log(arr[i] + " ");
+		}
+}
+	//FUNCTION FOR HEAPSORT
+		function heapSort() 
+		{
+		let arr = [];
+        	for (let i = 0; i < 10; i++) 
+		{
+            	arr.push(Math.floor(Math.random() * 100) + 10);
+		}
+		console.log("Unsorted Array:");
+		for (var i = 0; i < arr.length; i++) 
+		{
+  			console.log(arr[i] + " ");
+		}
+		var n = arr.length;
+		//Build heap
+		for (var i = Math.floor(n/2) - 1;i >= 0;i--)
+		{
+			heapify(arr,n,i);
+		}
+		//Element is extracted one by one
+		for (var i = n - 1; i >=0; i--)
+		{
+			var swap = arr[0];
+			arr[0] = arr[i];
+			arr[i] = swap;
+			heapify(arr,i,0);
+		}
+		console.log("Sorted Array for Heap Sort:")
+		for (var i = 0; i < arr.length; i++) 
+		{
+  		console.log(arr[i] + " ");
+		}	
+	}
+	//FUNCTION FOR HEAPIFY
+		function heapify(arr,n,i)
+		{
+		//Initialize largest as root
+		var largest = i;
+		var leftChild = 2*i+1;
+		var rightChild = 2*i+2;
+		if(leftChild < n && arr[leftChild] > arr[largest])
+		{
+			largest = leftChild;
+		
+		}
+		if(rightChild < n && arr[rightChild] > arr[largest])
+		{
+			largest = rightChild;
+		}
+		if(largest != i)
+		{
+			var temporary = arr[i];
+			arr[i] = arr[largest];
+			arr[largest] = temporary;
+			heapify(arr,n,largest);
+		}
+		
+	}
+	//FUNCTION FOR INSERTION SORT
+		function insertionSort()
+		{
+		let arr = [];
+        	for (let i = 0; i < 10; i++) 
+		{
+            	arr.push(Math.floor(Math.random() * 100) + 10);
+		}
+		console.log("Unsorted Array:");
+		for (var i = 0; i < arr.length; i++) 
+		{
+  			console.log(arr[i] + " ");
+		}
+			let n = arr.length;
+			for(let i = 0; i < n;i++)
+			{
+				let key = arr[i];
+				let j = i - 1;
+			while (j >= 0 && key < arr[j])
+			{
+				arr[j + 1] = arr[j];
+				j--;
+			}
+			arr[j + 1] = key;
+		}
+		console.log("Sorted Array with Insertion Sort:")
+		for (var i = 0; i < arr.length; i++) 
+		{
+  		console.log(arr[i] + " ");
+		}
+	}
+	//FUNCTION FOR SELECTION SORT
+		function selectionSort()
+		{
+			let arr = [];
+        	for (let i = 0; i < 10; i++) 
+		{
+            arr.push(Math.floor(Math.random() * 100) + 10);
+		}
+		console.log("Unsorted Array:");
+		for (var i = 0; i < arr.length; i++) 
+		{
+  			console.log(arr[i] + " ");
+		}
+		for (let i = 0; i < arr.length - 1; i++) 
+		{
+			let n = arr.length;
+			for(let i = 0;i < n-1; i++)
+			{
+			//set current element as minimum element
+			let min = i;
+			//check the element to be minimum
+				for(let j = i+1; j < n; j++)
+				{
+					if(arr[j] < arr[min])
+					{
+						min = j;
+					}
+				}
+					var temp = arr[i];
+					arr[i] = arr[min];
+					arr[min] = temp;
+			}
+		}
+		console.log("Sorted Array with Selection Sort:")
+		for (var p = 0; p < arr.length; p++) 
+		{
+  			console.log(arr[p] + " ");
+		}
+	} // Function close for selection sort
+
+	//FUNCTION FOR MERGE SORT
+		function mergeSort(arr,left,right)
+		{
+			if(left < right)
+			{
+				let mid = Math.floor((left + right) / 2);
+				mergeSort(arr,left,mid);
+				mergeSort(arr,mid+1,right);
+				merge(arr,left,mid,right);
+			}
+		
+		}//Function clode for MergeSort
+		function merge(arr,left,mid,right)
+		{
+			let n1 = mid - left + 1;
+		let n2 = right - mid;
+		let leftArr = new Array(n1);
+		let rightArr = new Array(n2);
+		for( let i = 0; i < n1 ; i++)
+		{
+			leftArr[i] = arr[left + i];
+		}
+		for(let j = 0; j < n2;j++)
+		{
+			rightArr[j] = arr[mid + j + 1];
+		}		
+		let i = 0;
+		let j = 0;
+		let k = left;
+		while (i<n1 && j <n2)
+		{
+			if(leftArr[i] <= rightArr[j])
+			{
+				arr[k] = leftArr[i];
+				i++;
+			}
+			else 
+			{
+				arr[k] = rightArr[j];
+				j++;
+			}
+			k++;
+		}
+		while (i<n1)
+		{
+			arr[k] = leftArr[i];
+			i++;
+			k++;
+		}
+		while (j<n2)
+		{
+			arr[k] = rightArr[j];
+			j++;
+			k++;
+		}
+	}
+	//FUNCTION FOR QUICK SORT
+	function quickSort(arr,low,high)
+	{
+	//low --> Starting index, high --> ending index 
+	if(low < high)
+	{
+		//pi --> partitioning index, arr[pi] is now at the right place
+		let pi = partition(arr,low,high);
+		//Before pi
+		quickSort(arr,low,pi-1);
+		//After pi
+		quickSort(arr,pi+1,high);
+	}
+	
+	}
+		//FUNCTION FOR PARTITION IN QUICK SORT
+		function partition(arr,low,high)
+{
+	//pivot -->element should be placed at right position
+	let pivot = arr[high];
+	//index of smaller element
+	let i = low - 1;
+	for(let j = low; j < high; j++)
+	{
+		//if current element is smaller than the pivot
+		if(arr[j] <= pivot)
+		{
+			//increment index of smaller element
+			i++;
+			var temp1 = arr[i];
+			arr[i] = arr[j];
+			arr[j] = temp1;
+		}
+	}
+	var temp2 = arr[i+1];
+	arr[i+1] = arr[high];
+	arr[high] = temp2;
+	return [i+1];
+}
+	//FUNCTION FOR THREE WAY QUICK SORT
+	function threewayQuickSort(arr,low,high)
+	{
+	if(low<high)
+	{
+		let pivot = partitions(arr,low,high);
+		threewayQuickSort(arr,low,pivot[0] - 1);
+		threewayQuickSort(arr,pivot[1]+1,high);
+	}
+	}
+	function partitions(arr,low,high)
+	{
+	//partitioning array into three parts
+	//Element < pivot
+	//Element = Pivot
+	//Element > pivot
+	//choose a Random pivot index
+	var pivotIndex = Math.floor(Math.random() * (high - low +1))+low;
+	var pivot = arr[pivotIndex];
+	var lessthan = low;
+	var greaterthan = high;
+	var i = low;
+	while (i <= greaterthan)
+	{
+		if(arr[i] < pivot)
+		{
+			swap(arr,lessthan++,i++);
+		}
+		else if(arr[i] > pivot)
+		{
+			swap(arr,i,greaterthan--);
+		}
+		else
+		{
+			i++;
+		}
+	}
+	return [lessthan,greaterthan];
+}
+function swap(arr,i,j)
+{
+	var temporary = arr[i];
+	arr[i] = arr[j];
+	arr[j] = temporary;
+}
+	</script>
+</body>	
+</html>
+
+	
